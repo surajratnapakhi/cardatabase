@@ -1,4 +1,8 @@
 package com.packt.cardatabase.domain;
+import java.lang.reflect.Constructor;
+
+import org.yaml.snakeyaml.constructor.Construct;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
@@ -58,4 +62,5 @@ public class Car
 		this.years = years;
 		this.price = price;
 	}
+	public Car(){}
 }
