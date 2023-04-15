@@ -17,12 +17,18 @@ public class Owner {
     public String getFirstname() {
         return firstname;
     }
+    public String getLastname() {
+        return lastname;
+    }
     public long getOwnerid() 
     {
         return ownerid;
     }
     public void setFirstname(String firstname) {
         this.firstname = firstname;
+    }
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
     public void setOwnerid(long ownerid) {
         this.ownerid = ownerid;
