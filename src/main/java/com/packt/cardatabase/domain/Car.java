@@ -4,7 +4,10 @@ import java.lang.reflect.Constructor;
 import org.yaml.snakeyaml.constructor.Construct;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
@@ -53,7 +56,7 @@ public class Car
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public Car(String brand, String model, String color, String registerNumber, int years, int price) {
+	public Car(String brand, String model, String color, String registerNumber, int years, int price, Owner owner) {
 		super();
 		this.brand = brand;
 		this.model = model;
@@ -61,6 +64,19 @@ public class Car
 		this.registerNumber = registerNumber;
 		this.years = years;
 		this.price = price;
+		this.owner = owner;
 	}
 	public Car(){}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Owner")
+	private Owner owner;
+	
+	public Owner getOwner() {
+		return owner;
+	}
+	public void setOwner(Owner owner) {
+		this.owner = owner;
+	}
+	
 }
